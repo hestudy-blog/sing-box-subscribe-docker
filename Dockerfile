@@ -1,4 +1,4 @@
-FROM fnndsc/conda:python3.10.6
+FROM python:3.9-slim
 COPY . /sing-box-subscribe
 WORKDIR /sing-box-subscribe
 RUN pip install --upgrade pip
