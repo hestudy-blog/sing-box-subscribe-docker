@@ -9,7 +9,7 @@ on:
   # schedule:
   #   - cron: '28 11 * * *'
   push:
-    # branches: [ "release" ]
+    branches: [ "release" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   # pull_request:
@@ -44,11 +44,6 @@ jobs:
         uses: sigstore/cosign-installer@6e04d228eb30da1757ee4e1dd75a0ec73a653e06 #v3.1.1
         with:
           cosign-release: 'v2.1.1'
-
-      # Add support for more platforms with QEMU (optional)
-      # https://github.com/docker/setup-qemu-action
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
 
       # Set up BuildKit Docker container builder to be able to build
       # multi-platform images and export cache
