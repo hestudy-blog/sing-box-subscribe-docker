@@ -477,9 +477,11 @@ def combin_to_config(config, data):
                     else:
                         t_o.append(oo)
                 if len(t_o) == 0:
+                    t_o.append('direct')
                     print('发现 {} 出站下的节点数量为 0 ，会导致sing-box无法运行，请检查config模板是否正确。'.format(
                         po['tag']))
                     # print('Sing-Box không chạy được vì không tìm thấy bất kỳ proxy nào trong outbound của {}. Vui lòng kiểm tra xem mẫu cấu hình có đúng không!!'.format(po['tag']))
+                    """
                     config_path = json.loads(temp_json_data).get("save_config_path", "config.json")
                     CONFIG_FILE_NAME = config_path
                     config_file_path = os.path.join('/tmp', CONFIG_FILE_NAME)
@@ -488,6 +490,7 @@ def combin_to_config(config, data):
                         print(f"已删除文件：{config_file_path}")
                         # print(f"Các tập tin đã bị xóa: {config_file_path}")
                     sys.exit()
+                    """
                 po['outbounds'] = t_o
                 if po.get('filter'):
                     del po['filter']
