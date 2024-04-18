@@ -211,6 +211,9 @@ def get_protocol(s):
         if m.group(1) == 'hy2':
             s = re.sub(r'^(.+?)://', 'hysteria2://', s)
             m = re.search(r'^(.+?)://', s)
+        if m.group(1) == 'wireguard':
+            s = re.sub(r'^(.+?)://', 'wg://', s)
+            m = re.search(r'^(.+?)://', s)
         if m.group(1) == 'http2':
             s = re.sub(r'^(.+?)://', 'http://', s)
             m = re.search(r'^(.+?)://', s)
