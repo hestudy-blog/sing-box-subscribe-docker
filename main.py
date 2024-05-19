@@ -216,7 +216,7 @@ def get_parser(node):
     return parsers_mod[proto].parse
 
 
-def get_content_from_url(url, n=6):
+def get_content_from_url(url, n=10):
     UA = ''
     print('处理: \033[31m' + url + '\033[0m')
     # print('Đang tải link đăng ký: \033[31m' + url + '\033[0m')
