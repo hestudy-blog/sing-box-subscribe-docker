@@ -194,7 +194,10 @@ def parse_content(content):
         factory = get_parser(t)
         if not factory:
             continue
-        node = factory(t)
+        try:
+            node = factory(t)
+        except Exception as e:  #节点解析失败，跳过
+            pass
         if node:
             nodelist.append(node)
     return nodelist
