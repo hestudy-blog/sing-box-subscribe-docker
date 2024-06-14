@@ -206,7 +206,10 @@ def is_ip(str):
     return re.search(r'^\d+\.\d+\.\d+\.\d+$',str)
 
 def get_protocol(s):
-    m = re.search(r'^(.+?)://', s)
+    try:
+        m = re.search(r'^(.+?)://', s)
+    except Exception as e:
+        return None
     if m:
         if m.group(1) == 'hy2':
             s = re.sub(r'^(.+?)://', 'hysteria2://', s)
@@ -221,7 +224,6 @@ def get_protocol(s):
             s = re.sub(r'^(.+?)://', 'socks://', s)
             m = re.search(r'^(.+?)://', s)
         return m.group(1)
-    return None
 
 def checkKeywords(keywords,str):
     if not keywords:
