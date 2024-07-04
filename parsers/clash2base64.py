@@ -110,6 +110,8 @@ def clash2v2ray(share_link):
             ss_info["max_streams"] = share_link['smux'].get('max-streams','')
             ss_info["padding"] = share_link['smux'].get('padding','')
             link += "&protocol={protocol}&max-connections={max_connections}&min-streams={min_streams}&max-streams={max_streams}&padding={padding}#{name}".format(**ss_info)
+        elif share_link.get("udp-over-tcp") == True:
+            link += "&uot=1#{name}".format(**ss_info)
         else:
             link += f"#{ss_info['name']}"
         return link

@@ -13,6 +13,11 @@ def parse(data):
         'password':None
     }
     flag = 0
+    if param.find('uot') > -1:
+        node["udp_over_tcp"] = {
+            'enabled': True,
+            'version': 2
+        }
     if param.find('#') > -1:
         if param[param.find('#') + 1:] != '':
             remark = urllib.parse.unquote(param[param.find('#') + 1:])
