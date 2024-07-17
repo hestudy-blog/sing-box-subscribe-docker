@@ -15,6 +15,8 @@ def parse(data):
         'private_key': netquery.get('privateKey') or unquote(server_info.netloc.rsplit("@", 1)[0]),
         'peer_public_key': netquery.get('publicKey') or netquery.get('publickey')
     }
+    if netquery.get('mtu'):
+        node['mtu'] = int(netquery['mtu'])
     if netquery.get('reserved'):
         reserved_value = netquery.get('reserved')
         node['reserved'] = [int(val) for val in reserved_value.split(",")] if ',' in reserved_value else reserved_value
